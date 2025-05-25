@@ -277,6 +277,8 @@ namespace etl
     //*************************************************************************
     /// Returns a reference to the first element.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     reference front()
     {
       return *mbegin;
@@ -285,6 +287,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reference to the first element.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reference front() const
     {
       return *mbegin;
@@ -293,6 +297,8 @@ namespace etl
     //*************************************************************************
     /// Returns a reference to the last element.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     reference back()
     {
       return *(mend - 1);
@@ -301,6 +307,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reference to the last element.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reference back() const
     {
       return *(mend - 1);
@@ -309,6 +317,8 @@ namespace etl
     //*************************************************************************
     /// Returns a pointer to the first element of the internal storage.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     pointer data()
     {
       return mbegin;
@@ -317,6 +327,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const pointer to the first element of the internal storage.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_pointer data() const
     {
       return mbegin;
@@ -325,6 +337,8 @@ namespace etl
     //*************************************************************************
     /// Returns an iterator to the beginning of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     iterator begin()
     {
       return mbegin;
@@ -333,6 +347,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const iterator to the beginning of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_iterator begin() const
     {
       return mbegin;
@@ -341,6 +357,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const iterator to the beginning of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_iterator cbegin() const
     {
       return mbegin;
@@ -349,6 +367,8 @@ namespace etl
     //*************************************************************************
     /// Returns an iterator to the end of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     iterator end()
     {
       return mend;
@@ -357,6 +377,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const iterator to the end of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_iterator end() const
     {
       return mend;
@@ -365,6 +387,8 @@ namespace etl
     //*************************************************************************
     // Returns a const iterator to the end of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_iterator cend() const
     {
       return mend;
@@ -373,6 +397,8 @@ namespace etl
     //*************************************************************************
     // Returns an reverse iterator to the reverse beginning of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     reverse_iterator rbegin()
     {
       return reverse_iterator(mend);
@@ -381,6 +407,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reverse iterator to the reverse beginning of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reverse_iterator rbegin() const
     {
       return const_reverse_iterator(mend);
@@ -389,6 +417,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reverse iterator to the reverse beginning of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reverse_iterator crbegin() const
     {
       return const_reverse_iterator(mend);
@@ -397,6 +427,8 @@ namespace etl
     //*************************************************************************
     /// Returns a reverse iterator to the end of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     reverse_iterator rend()
     {
       return reverse_iterator(mbegin);
@@ -405,6 +437,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reverse iterator to the end of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reverse_iterator rend() const
     {
       return const_reverse_iterator(mbegin);
@@ -413,6 +447,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reverse iterator to the end of the array.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reverse_iterator crend() const
     {
       return const_reverse_iterator(mbegin);
@@ -445,6 +481,7 @@ namespace etl
     //*************************************************************************
     /// Assign from a view.
     //*************************************************************************
+    ETL_CONSTEXPR14
     array_view& operator=(const array_view& other)
     {
       mbegin = other.mbegin;
@@ -456,6 +493,7 @@ namespace etl
     /// Assign from iterators
     //*************************************************************************
     template <typename TIterator>
+    ETL_CONSTEXPR17
     void assign(const TIterator begin_, const TIterator end_)
     {
       mbegin = etl::to_address(begin_);
@@ -467,6 +505,7 @@ namespace etl
     //*************************************************************************
     template <typename TIterator,
               typename TSize>
+    ETL_CONSTEXPR14
     void assign(const TIterator begin_, const TSize size_)
     {
       mbegin = etl::to_address(begin_);
@@ -477,6 +516,8 @@ namespace etl
     //*************************************************************************
     /// Returns a reference to the indexed value.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     reference operator[](const size_t i)
     {
       return mbegin[i];
@@ -486,6 +527,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reference to the indexed value.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reference operator[](const size_t i) const
     {
       return mbegin[i];
@@ -495,6 +538,8 @@ namespace etl
     //*************************************************************************
     /// Returns a reference to the indexed value.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     reference at(const size_t i)
     {
       ETL_ASSERT((mbegin != ETL_NULLPTR && mend != ETL_NULLPTR), ETL_ERROR(array_view_uninitialised));
@@ -506,6 +551,8 @@ namespace etl
     //*************************************************************************
     /// Returns a const reference to the indexed value.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR14
     const_reference at(const size_t i) const
     {
       ETL_ASSERT((mbegin != ETL_NULLPTR && mend != ETL_NULLPTR), ETL_ERROR(array_view_uninitialised));
@@ -516,6 +563,11 @@ namespace etl
     //*************************************************************************
     /// Swaps with another array_view.
     //*************************************************************************
+#if ETL_USING_STD_NAMESPACE
+    ETL_CONSTEXPR20
+#else
+    ETL_CONSTEXPR14
+#endif
     void swap(array_view& other)
     {
       using ETL_OR_STD::swap; // Allow ADL
@@ -527,6 +579,7 @@ namespace etl
     //*************************************************************************
     /// Shrinks the view by moving its start forward.
     //*************************************************************************
+    ETL_CONSTEXPR14
     void remove_prefix(const size_type n)
     {
 		if (n < size())
@@ -538,6 +591,7 @@ namespace etl
     //*************************************************************************
     /// Shrinks the view by moving its end backward.
     //*************************************************************************
+    ETL_CONSTEXPR14
     void remove_suffix(const size_type n)
     {
 		if (n < size())
@@ -549,6 +603,11 @@ namespace etl
     //*************************************************************************
     /// Fills the array.
     //*************************************************************************
+#if ETL_USING_STL
+    ETL_CONSTEXPR20
+#else
+    ETL_CONSTEXPR14
+#endif
     void fill(const T& value)
     {
       etl::fill(begin(), end(), value);
@@ -557,6 +616,8 @@ namespace etl
     //*************************************************************************
     /// Equality for array views.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR
     friend bool operator == (const array_view<T>& lhs, const array_view<T>& rhs)
     {
       return (lhs.size() == rhs.size()) &&
@@ -566,6 +627,8 @@ namespace etl
     //*************************************************************************
     /// Inequality for array views.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR
     friend bool operator != (const array_view<T>& lhs, const array_view<T>& rhs)
     {
       return !(lhs == rhs);
@@ -574,6 +637,8 @@ namespace etl
     //*************************************************************************
     /// Less-than for array views.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR
     friend bool operator < (const array_view<T>& lhs, const array_view<T>& rhs)
     {
       return etl::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
@@ -582,6 +647,8 @@ namespace etl
     //*************************************************************************
     /// Greater-than for array views.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR
     friend bool operator > (const array_view<T>& lhs, const array_view<T>& rhs)
     {
       return rhs < lhs;
@@ -590,6 +657,8 @@ namespace etl
     //*************************************************************************
     /// Less-than-equal for array views.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR
     friend bool operator <= (const array_view<T>& lhs, const array_view<T>& rhs)
     {
       return !(lhs > rhs);
@@ -598,6 +667,8 @@ namespace etl
     //*************************************************************************
     /// Greater-than-equal for array views.
     //*************************************************************************
+    ETL_NODISCARD
+    ETL_CONSTEXPR
     friend bool operator >= (const array_view<T>& lhs, const array_view<T>& rhs)
     {
       return !(lhs < rhs);
@@ -647,6 +718,7 @@ namespace etl
 /// Swaps the values.
 //*************************************************************************
 template <typename T>
+ETL_CONSTEXPR
 void swap(etl::array_view<T>& lhs, etl::array_view<T>& rhs)
 {
   lhs.swap(rhs);
